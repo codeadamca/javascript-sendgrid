@@ -1,31 +1,50 @@
 <?php
 
-
-// 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
-
-// Uncomment next line if you're not using a dependency loader (such as Composer)
-// require_once '<PATH TO>/sendgrid-php.php';
+include('vendor/autoload.php');
 
 use SendGrid\Mail\Mail;
 
 $email = new Mail();
-$email->setFrom("test@example.com", "Example User");
-$email->setSubject("Sending with Twilio SendGrid is Fun");
-$email->addTo("test@example.com", "Example User");
-$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->setFrom("thomasadam83@hotmail.com", "Adam Thomas");
+$email->setSubject("Contact Form Submission");
+$email->addTo("thomasadam83@hotmail.com", "Adam Thomas");
 $email->addContent(
-    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+    "text/plain", "You have received a contact form submission:
+        
+Name: ".$_POST['name']."
+Email: ".$_PSOT['email']."
+Message: ".$_PSOT['message']."
+
+"
 );
-$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+$email->addContent(
+    "text/html", "You have received a contact form submission:
+<br><br>      
+Name: ".$_POST['name']."
+<br>
+Email: ".$_PSOT['email']."
+<br>
+Message: ".$_PSOT['message']."
+        
+"
+);
+
+$sendgrid = new \SendGrid('');
 try {
     $response = $sendgrid->send($email);
+    /*
+    echo '<pre>';
     print $response->statusCode() . "\n";
     print_r($response->headers());
     print $response->body() . "\n";
+    echo '</pre>';
+    */
+    die('{"status":"complete"}');
 } catch (Exception $e) {
+    /*
     echo 'Caught exception: '.  $e->getMessage(). "\n";
+    */
+    die('{"status":"error"}');
 }
 
-print_r($_POST);
 
-die('{"status":"complete"}');

@@ -1,0 +1,10 @@
+{
+    "name": "adam/php-sendgrid",
+    "description": "A basis example of using PHP and SendGrid.",
+    "type": "project",
+    "require": {
+        "sendgrid/sendgrid": "7.*"
+    },
+    "autoload": {
+    }
+}

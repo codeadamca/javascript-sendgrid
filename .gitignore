@@ -1,2 +1,3 @@
 /sendgrid-php-main
 .DS_Store
+/vendor/
