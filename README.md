@@ -1,7 +1,8 @@
-# php-sendgrid
+# Using PHP with the SendGrid API
+
 A basic example of using PHP and an HTML form to send an email using the SendGrid API.
 
-## Tutorial Requirements:
+## Requirements:
 
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [SendGrid](https://sendgrid.com/)
