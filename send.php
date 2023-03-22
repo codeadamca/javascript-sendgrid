@@ -5,9 +5,9 @@ include('vendor/autoload.php');
 use SendGrid\Mail\Mail;
 
 $email = new Mail();
-$email->setFrom("thomasadam83@hotmail.com", "Adam Thomas");
+$email->setFrom("<FROM_EMAIL_ADDRESS>", "<FROM_EMAIL_NAME>");
 $email->setSubject("Contact Form Submission");
-$email->addTo("thomasadam83@hotmail.com", "Adam Thomas");
+$email->addTo("<TO_EMAIL_ADDRESS>", "<TO_EMAIL_NAME>");
 $email->addContent(
     "text/plain", "You have received a contact form submission:
         
@@ -29,7 +29,7 @@ Message: ".$_PSOT['message']."
 "
 );
 
-$sendgrid = new \SendGrid('');
+$sendgrid = new \SendGrid('<SENDGRID_API_KEY>');
 try {
     $response = $sendgrid->send($email);
     /*
