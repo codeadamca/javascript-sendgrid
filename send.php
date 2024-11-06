@@ -12,8 +12,8 @@ $email->addContent(
     "text/plain", "You have received a contact form submission:
         
 Name: ".$_POST['name']."
-Email: ".$_PSOT['email']."
-Message: ".$_PSOT['message']."
+Email: ".$_POST['email']."
+Message: ".$_POST['message']."
 
 "
 );
@@ -22,9 +22,9 @@ $email->addContent(
 <br><br>      
 Name: ".$_POST['name']."
 <br>
-Email: ".$_PSOT['email']."
+Email: ".$_POST['email']."
 <br>
-Message: ".$_PSOT['message']."
+Message: ".$_POST['message']."
         
 "
 );
